@@ -176,6 +176,71 @@ function showCategory(category) {
 
 document.addEventListener('DOMContentLoaded', () => fetchNews('all'));
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const url = 'https://www.cbr-xml-daily.ru/daily.xml';
     const currencyRatesDiv = document.getElementById('currency-rates');
