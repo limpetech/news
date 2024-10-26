@@ -4,7 +4,7 @@ const feeds = {
 		"https://wtf.roflcopter.fr/rss-bridge/?action=display&username=panchenkodi&bridge=TelegramBridge&format=Json",
         "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40rian_ru&format=Json",
 		"https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40kaluganews&format=Json",
-		"https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40@Short_DPR&format=Json"
+		"https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40Short_DPR&format=Json"
     ],
     "Технологии": [
         "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40rozetked&format=Json",
