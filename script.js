@@ -21,7 +21,7 @@ const feeds = {
     ],
     "Анимация": [
         "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40multfest&format=Json"
-    ]
+    ],
 	"Игры": [
         "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40thesimsclub&format=Json"
 		
