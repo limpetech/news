@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Агрегатор новостей</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+ <style>
+        #currency-rates {
+            height: 19px;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 5px;
+            font-size: 14px;
+        }
+    </style>
+
+
+
+
+
+<body>
+    <div class="services-menu">
+        <a href="https://limpe.fun">@limpe</a>
+        <a href="https://kskype.limpe.fun">KSkype</a>
+        <a href="https://my.dexpaz.ru">Твой Мир</a>
+        <a href="https://code.dexpaz.ru">Твой Код</a>
+        <a href="https://dexpaz.ru/getoldsoft/new.html">Старый софт</a>
+        <a href="https://limpe.fun/all">Все сервисы @limpe</a>
+    </div>
+    <div class="top-menu">
+        <img src="assets/news.svg" alt="Логотип">
+        <div class="categories">
+            <a href="#" onclick="showCategory('all')">Главная</a>
+            <a href="#" onclick="showCategory('Политика')">Политика</a>
+            <a href="#" onclick="showCategory('Технологии')">Технологии</a>
+            <a href="#" onclick="showCategory('Спорт')">Спорт</a>
+            <a href="#" onclick="showCategory('Автомобили')">Автомобили</a>
+            <a href="#" onclick="showCategory('Анимация')">Анимация</a>
+        </div>
+		 
+    </div>
+    <div class="container">
+	 <div id="currency-rates"></div>
+        <h1 id="category-title">Агрегатор новостей</h1>
+        <div id="news-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
