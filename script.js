@@ -1,11 +1,15 @@
 const feeds = {
     "Политика": [
         "https://wtf.roflcopter.fr/rss-bridge/?action=display&username=vestiru24&bridge=TelegramBridge&format=Json",
-        "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40rian_ru&format=Json"
+        "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40rian_ru&format=Json",
+		"https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40kaluganews&format=Json",
+		"https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40@Short_DPR&format=Json"
     ],
     "Технологии": [
         "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40rozetked&format=Json",
-        "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=d_code&format=Json"
+       "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40Romancev768&format=Json",
+	   "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40Wylsared&format=Json",
+		"https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=d_code&format=Json"
     ],
     "Спорт": [
         "https://wtf.roflcopter.fr/rss-bridge/?action=display&username=Match_TV&bridge=TelegramBridge&format=Json"
@@ -175,71 +179,6 @@ function showCategory(category) {
 }
 
 document.addEventListener('DOMContentLoaded', () => fetchNews('all'));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 document.addEventListener('DOMContentLoaded', function() {
     const url = 'https://www.cbr-xml-daily.ru/daily.xml';
