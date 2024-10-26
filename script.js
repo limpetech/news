@@ -1,6 +1,7 @@
 const feeds = {
     "Политика": [
         "https://wtf.roflcopter.fr/rss-bridge/?action=display&username=vestiru24&bridge=TelegramBridge&format=Json",
+"https://wtf.roflcopter.fr/rss-bridge/?action=display&username=prav_dnr&bridge=TelegramBridge&format=Json",
 		"https://wtf.roflcopter.fr/rss-bridge/?action=display&username=panchenkodi&bridge=TelegramBridge&format=Json",
         "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40rian_ru&format=Json",
 		"https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40kaluganews&format=Json",
@@ -8,19 +9,32 @@ const feeds = {
     ],
     "Технологии": [
         "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40rozetked&format=Json",
+				"https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40daneo03&format=Json",
+		"https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40prohitec&format=Json",
+		"https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40KOD_RU&format=Json",
        "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40Romancev768&format=Json",
-	   "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40Wylsared&format=Json",
-		"https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=d_code&format=Json"
+		   "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40biggeekru&format=Json", 
+	 "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40Wylsared&format=Json",
+		"https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40d_code&format=Json"
     ],
     "Спорт": [
-        "https://wtf.roflcopter.fr/rss-bridge/?action=display&username=Match_TV&bridge=TelegramBridge&format=Json",
-		"https://wtf.roflcopter.fr/rss-bridge/?action=display&username=matchpremier&bridge=TelegramBridge&format=Json"
+        "https://wtf.roflcopter.fr/rss-bridge/?action=display&username=%40Match_TV&bridge=TelegramBridge&format=Json",
+		"https://wtf.roflcopter.fr/rss-bridge/?action=display&username=%40rhymesport&bridge=TelegramBridge&format=Json",
+		"https://wtf.roflcopter.fr/rss-bridge/?action=display&username=%40matchpremier&bridge=TelegramBridge&format=Json"
     ],
     "Автомобили": [
-        "https://wtf.roflcopter.fr/rss-bridge/?action=display&username=dromru&bridge=TelegramBridge&format=Json"
+        "https://wtf.roflcopter.fr/rss-bridge/?action=display&username=%40dromru&bridge=TelegramBridge&format=Json",
+		"https://wtf.roflcopter.fr/rss-bridge/?action=display&username=%40simply_formula&bridge=TelegramBridge&format=Json"
     ],
     "Анимация": [
         "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40multfest&format=Json"
+    ],
+	"Общество": [
+        "https://wtf.roflcopter.fr/rss-bridge/?action=display&username=Tapor_news&bridge=TelegramBridge&format=Json",
+		"https://wtf.roflcopter.fr/rss-bridge/?action=display&username=topor&bridge=TelegramBridge&format=Json",
+		"https://wtf.roflcopter.fr/rss-bridge/?action=display&username=petrovtel&bridge=TelegramBridge&format=Json",,
+		"https://wtf.roflcopter.fr/rss-bridge/?action=display&username=rhymestg&bridge=TelegramBridge&format=Json",
+		"https://wtf.roflcopter.fr/rss-bridge/?action=display&username=rhymesmuz&bridge=TelegramBridge&format=Json"
     ],
 	"Игры": [
         "https://wtf.roflcopter.fr/rss-bridge/?action=display&bridge=TelegramBridge&username=%40thesimsclub&format=Json"
