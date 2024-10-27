@@ -42,6 +42,155 @@ const feeds = {
     ]
 };
 
+
+
+function applyStyles() {
+    const styles = `
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2664A8;
+            margin: 0;
+            padding: 0;
+        }
+        .top-menu {
+            background-color: #2664A8;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+        }
+        .top-menu img {
+            height: 44px;
+            margin-right: 50px;
+            top: -5;
+        }
+        .top-menu a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .services-menu {
+            background-color: #333;
+            color: white;
+            height: 19px;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+        }
+        .services-menu a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .news-item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            height: 168px;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        .news-image {
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+        .news-content {
+            flex: 1;
+        }
+        .news-title {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .news-link {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .news-link:hover {
+            text-decoration: underline;
+        }
+        .news-description {
+            color: #666;
+        }
+        .news-author {
+            font-size: 0.9em;
+            color: #999;
+        }
+        .news-date {
+            font-size: 0.9em;
+            color: #999;
+        }
+        .categories {
+            margin: 20px 0;
+        }
+        .categories a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: white;
+        }
+        .categories a:hover {
+            text-decoration: underline;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+        .modal img {
+            width: 50%; 
+            height: auto; 
+            max-width: 100%;
+            object-fit: cover; 
+        }
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .image-grid img {
+            max-width: 200px;
+            height: auto;
+        }
+    `;
+
+    const styleSheet = document.createElement('style');
+    styleSheet.type = 'text/css';
+    styleSheet.innerText = styles;
+    document.head.appendChild(styleSheet);
+}
+
+const stopWords = ['Разыгрываем', 'рашка', 'Рашка', 'Рашисты', 'рашисты'];
+
+function containsStopWords(text) {
+    if (!text) return false; // Проверка на наличие текста
+    return stopWords.some(word => text.includes(word));
+}
+
 function fetchNews(category = 'all') {
     const newsContainer = document.getElementById('news-container');
     const categoryTitle = document.getElementById('category-title');
@@ -49,21 +198,17 @@ function fetchNews(category = 'all') {
     categoryTitle.textContent = category === 'all' ? 'Агрегатор новостей' : category;
     const categories = category === 'all' ? Object.keys(feeds) : [category];
     let allItems = [];
-
-    const fetchPromises = categories.flatMap(cat => 
-        feeds[cat].map(feedUrl => 
-            fetch(feedUrl)
-                .then(response => response.json())
-                .then(data => data.items)
-                .catch(error => {
-                    console.error('Error fetching news:', error);
-                    return [];
-                })
-        )
-    );
-
+    const fetchPromises = categories.flatMap(cat => feeds[cat].map(feedUrl => fetch(feedUrl)
+        .then(response => response.json())
+        .then(data => data.items)
+        .catch(error => {
+            console.error('Error fetching news:', error);
+            return [];
+        })
+    ));
     Promise.all(fetchPromises).then(results => {
         allItems = results.flat();
+        allItems = allItems.filter(item => !containsStopWords(item.title) && !containsStopWords(item.summary));
         allItems.sort((a, b) => new Date(b.date_modified) - new Date(a.date_modified));
         displayNews(allItems);
     });
@@ -74,20 +219,16 @@ function displayNews(items) {
     items.forEach(item => {
         const newsItem = document.createElement('div');
         newsItem.className = 'news-item';
-
         getImageUrlFromContentHtml(item.content_html).then(imageUrl => {
             const newsImage = document.createElement('img');
             newsImage.className = 'news-image';
             newsImage.src = imageUrl || 'notfound.png';
             newsImage.alt = item.title;
-
             const newsContent = document.createElement('div');
             newsContent.className = 'news-content';
-
             const newsTitle = document.createElement('div');
             newsTitle.className = 'news-title';
             newsTitle.textContent = item.title;
-
             const newsLink = document.createElement('a');
             newsLink.className = 'news-link';
             newsLink.href = '#';
@@ -95,28 +236,22 @@ function displayNews(items) {
             newsLink.addEventListener('click', () => {
                 showModal(item.content_html, item.attachments);
             });
-
             const newsDescription = document.createElement('div');
             newsDescription.className = 'news-description';
             newsDescription.textContent = item.summary || '';
-
             const newsAuthor = document.createElement('div');
             newsAuthor.className = 'news-author';
             newsAuthor.textContent = `Автор: ${item.author.name}`;
-
             const newsDate = document.createElement('div');
             newsDate.className = 'news-date';
             const date = new Date(item.date_modified);
             newsDate.textContent = `${date.getHours()}:${date.getMinutes()} ${date.getDate()} ${date.toLocaleString('ru', { month: 'short' })} ${date.getFullYear()}`;
-
             newsContent.appendChild(newsLink);
             newsContent.appendChild(newsDescription);
             newsContent.appendChild(newsAuthor);
             newsContent.appendChild(newsDate);
-
             newsItem.appendChild(newsImage);
             newsItem.appendChild(newsContent);
-
             newsContainer.appendChild(newsItem);
         });
     });
@@ -127,7 +262,6 @@ function getImageUrlFromContentHtml(contentHtml) {
         const parser = new DOMParser();
         const doc = parser.parseFromString(contentHtml, 'text/html');
         const videos = doc.querySelectorAll('video');
-
         if (videos.length > 0) {
             const video = videos[0];
             const canvas = document.createElement('canvas');
@@ -154,9 +288,10 @@ function getImageUrlFromContentHtml(contentHtml) {
 }
 
 function showModal(content, attachments) {
+    const scrollPosition = window.scrollY; // Сохраняем текущее положение прокрутки
+
     const modal = document.createElement('div');
     modal.className = 'modal';
-
     const modalContent = document.createElement('div');
     modalContent.className = 'modal-content';
 
@@ -176,23 +311,22 @@ function showModal(content, attachments) {
     const contentDiv = document.createElement('div');
     contentDiv.innerHTML = content;
     modalContent.appendChild(contentDiv);
-
     modal.appendChild(modalContent);
-    modal.addEventListener('click', () => {
+
+    modal.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
         document.body.removeChild(modal);
+        window.scrollTo(0, scrollPosition); // Восстанавливаем положение прокрутки
     });
 
     document.body.appendChild(modal);
-
-    // Открытие ссылок с доменами telegram.org и t.me в новой вкладке
-    const links = modalContent.querySelectorAll('a');
-    links.forEach(link => {
-        if (link.href.includes('telegram.org') || link.href.includes('t.me')) {
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-        }
-    });
+    window.scrollTo(0, scrollPosition); // Восстанавливаем положение прокрутки
 }
+
+document.addEventListener('DOMContentLoaded', () => fetchNews('all'));
+
+
 
 function showCategory(category) {
     fetchNews(category);
